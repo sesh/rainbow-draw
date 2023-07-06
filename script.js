@@ -1,25 +1,30 @@
-/* If you're feeling fancy you can add interactivity
-    to your site with Javascript */
-
 const grid = 10;
 let body = document.querySelector("body");
 
-let hue = "orange";
+let hue;
 
-let colours = ["#f03e3e", "#fd7e14", "#ffe066", "#51cf66", "#228be6", "#cc5de8", "#f783ac", "#868e96"];
-let hues = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "monochrome"];
+let colours = ["#f03e3e", "#fd7e14", "#ffe066", "#51cf66", "#228be6", "#cc5de8", "#f783ac", "#868e96", "rainbow"];
+let hues = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "monochrome", ""];
 
 function init() {
   for (let j in colours) {
     let el = document.createElement("div");
-    el.style.backgroundColor = colours[j];
+
+    if (colours[j].indexOf("#") == 0) {
+      el.style.backgroundColor = colours[j];
+      el.className = "colour-picker";
+    } else {
+      el.className = "colour-picker rainbow";
+    }
+
     el.setAttribute("hue", hues[j]);
     el.style.bottom = j * 50 + 20 + "px";
-    el.className = "colour-picker";
+
     el.onclick = (e) => {
       hue = e.target.getAttribute("hue");
       e.preventDefault();
     };
+
     body.appendChild(el);
   }
 
