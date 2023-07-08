@@ -1,3 +1,5 @@
+![Rainbow Draw](./rainbow-draw.png)
+
 A simple drawing app that supports multitouch and fun colours.
 
 All games as part of this series are:
